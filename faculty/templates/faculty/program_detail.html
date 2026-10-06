@@ -1,0 +1,32 @@
+{% extends 'faculty/base.html' %}
+
+{% block title %}{{ program.name }}{% endblock %}
+
+{% block content %}
+
+<h2>{{ program.name }}</h2>
+
+<p><strong>Код спеціальності:</strong> {{ program.code }}</p>
+
+<h3>Про спеціальність</h3>
+<p>{{ program.description }}</p>
+
+<h3>Координатор набору</h3>
+<p>{{ program.coordinator_name }}</p>
+<p>{{ program.coordinator_contact }}</p>
+
+<h3>Випускова кафедра</h3>
+<p>
+    <a href="{% url 'department_detail' program.department.id %}">
+        {{ program.department.name }}
+    </a>
+</p>
+
+<h3>Дисципліни</h3>
+<p>{{ program.disciplines|linebreaks }}</p>
+
+<p>
+    <a href="{% url 'program_list' %}">← Назад до спеціальностей</a>
+</p>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Факультет природничих наук{% endblock %}</title>
+</head>
+
+<body>
+
+<header>
+    <h1>Факультет природничих наук НаУКМА</h1>
+
+    <nav>
+        <a href="{% url 'home' %}">Головна</a>
+        <a href="{% url 'department_list' %}">Кафедри</a>
+        <a href="{% url 'program_list' %}">Спеціальності</a>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+</body>
+</html>

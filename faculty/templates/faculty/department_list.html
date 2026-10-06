@@ -1,0 +1,40 @@
+{% extends 'faculty/base.html' %}
+
+{% block title %}Кафедри{% endblock %}
+
+{% block content %}
+
+<h2>Кафедри</h2>
+
+{% for department in departments %}
+    <div>
+        <h3>
+            <a href="{% url 'department_detail' department.id %}">
+                {{ department.name }}
+            </a>
+        </h3>
+
+        <p>
+            <strong>Завідувач кафедри:</strong>
+            {{ department.head }}
+        </p>
+
+        <h4>Спеціальності:</h4>
+
+        <ul>
+            {% for program in department.programs.all %}
+                <li>
+                    <a href="{% url 'program_detail' program.id %}">
+                        {{ program.name }}
+                    </a>
+                </li>
+            {% empty %}
+                <li>Спеціальності поки не додані.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% empty %}
+    <p>Кафедри поки не додані.</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'faculty/base.html' %}
+
+{% block title %}Головна | Факультет природничих наук{% endblock %}
+
+{% block content %}
+
+{% if home_page %}
+    <h2>{{ home_page.title }}</h2>
+
+    <p>{{ home_page.description }}</p>
+
+    <h3>Контакти</h3>
+    <p>{{ home_page.contact_info }}</p>
+{% else %}
+    <h2>Факультет природничих наук НаУКМА</h2>
+    <p>Інформація про факультет скоро з'явиться.</p>
+{% endif %}
+
+{% endblock %}
