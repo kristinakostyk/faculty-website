@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Department, Program, HomePage
-
+from .models import Department, Program, HomePage, ExchangeProgram
+from django.utils import timezone
 
 def home(request):
     home_page = HomePage.objects.first()
@@ -32,4 +32,16 @@ def department_detail(request, id):
         request,
         'faculty/department_detail.html',
         {'department': department}
+    )
+def exchange_list(request):
+    exchange_programs = ExchangeProgram.objects.all()
+    today = timezone.localdate()
+
+    return render(
+        request,
+        'faculty/exchange_list.html',
+        {
+            'exchange_programs': exchange_programs,
+            'today': today
+        }
     )

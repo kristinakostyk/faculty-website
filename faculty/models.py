@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Department(models.Model):
     name = models.CharField(max_length=200)
     head = models.ForeignKey(
@@ -51,3 +50,14 @@ class HomePage(models.Model):
 
     def __str__(self):
         return self.title
+
+class ExchangeProgram(models.Model):
+    university = models.CharField(max_length=255)
+    country = models.CharField(max_length=100, default='')
+    languages = models.CharField(max_length=255)
+    places = models.PositiveIntegerField()
+    deadline = models.DateField()
+    description = models.TextField()
+
+    def __str__(self):
+        return self.university
